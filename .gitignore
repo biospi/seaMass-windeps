@@ -1,0 +1,16 @@
+boost_1_57_0/b2.exe
+boost_1_57_0/bin.v2/
+boost_1_57_0/bjam.exe
+boost_1_57_0/bootstrap.log
+boost_1_57_0/project-config.jam
+boost_1_57_0/stage/
+boost_1_57_0/tools/build/src/engine/bin*/
+boost_1_57_0/tools/build/src/engine/bootstrap/
+hdf5-1.8.14/build/
+hdf5-1.8.14/stage/
+spatialindex-src-1.8.5/build/
+spatialindex-src-1.8.5/stage/
+zlib-1.2.8/build/
+zlib-1.2.8/stage/
+lpng1615/build/
+lpng1615/stage/
