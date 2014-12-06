@@ -1,5 +1,12 @@
 @echo off
 
+pushd "%~dp0/eigen-3.2.2"
+mkdir build
+cd build
+cmake -G"NMake Makefiles" -C"..\..\build.cmake" %* .. 2> nul
+nmake install
+popd
+
 pushd "%~dp0/zlib-1.2.8"
 mkdir build
 cd build
@@ -27,4 +34,6 @@ cd build
 cmake -G"NMake Makefiles" -C"..\..\build.cmake" %* ..
 nmake install
 popd
+
+
 

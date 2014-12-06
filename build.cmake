@@ -17,3 +17,8 @@ set(PNG_LIBRARY "${CMAKE_CURRENT_LIST_DIR}/lpng1615/stage/lib/libpng16_static.li
 
 set(OSGEO4W_ROOT "${CMAKE_CURRENT_LIST_DIR}/spatialindex-src-1.8.5/stage" CACHE PATH "")
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/eigen-3.2.2/cmake" CACHE PATH "")
+set(EIGEN3_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/eigen-3.2.2" CACHE PATH "")
+
+
+
