@@ -40,7 +40,7 @@
 
 // Nuke this annoying warning.  See http://www.unknownroad.com/rtfm/VisualStudio/warningC4251.html
 #pragma warning( disable: 4251 )
-#pragma warning( disable: 1125 )
+//#pragma warning( disable: 1125 )
 #endif
 
 #include <stdint.h>

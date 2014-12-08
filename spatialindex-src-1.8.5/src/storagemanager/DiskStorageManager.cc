@@ -29,6 +29,7 @@
 #include <cstring>
 
 // For checking if a file exists - hobu
+#define _USE_INT64 1 // awd97 - needed for large file support on VS2010
 #include <sys/stat.h>
 
 #include <spatialindex/SpatialIndex.h>
@@ -58,20 +59,31 @@ bool CheckFilesExists(Tools::PropertySet& ps)
 	if (dat_name.m_varType != Tools::VT_EMPTY) idx = std::string(dat_name.m_val.pcVal);
 	if (fn.m_varType != Tools::VT_EMPTY) filename = std::string(fn.m_val.pcVal);
 
+#if (defined _WIN32 || defined _WIN64 || defined WIN32 || defined WIN64) && !defined __GNUC__
+	struct __stat64 stats;
+#else
 	struct stat stats;
-
+#endif
 	std::ostringstream os;
 	int ret;
 	os << filename <<"."<<dat;
 	std::string data_name = os.str();
+#if (defined _WIN32 || defined _WIN64 || defined WIN32 || defined WIN64) && !defined __GNUC__
+	ret = _stat64(data_name.c_str(), &stats);
+#else
 	ret = stat(data_name.c_str(), &stats);
+#endif
 
 	if (ret == 0) bExists = true;
 
 	os.str("");
 	os << filename <<"."<<idx;
 	std::string index_name = os.str();
+#if (defined _WIN32 || defined _WIN64 || defined WIN32 || defined WIN64) && !defined __GNUC__
+	ret = __stat64(index_name.c_str(), &stats);
+#else
 	ret = stat(index_name.c_str(), &stats);
+#endif
 
 	if ((ret == 0) && (bExists == true)) bExists = true;
 
