@@ -306,14 +306,14 @@ class DenseTimeSparseProduct
     DenseTimeSparseProduct& operator=(const DenseTimeSparseProduct&);
 };
 
-// sparse * dense
+/*// sparse * dense
 template<typename Derived>
 template<typename OtherDerived>
 inline const typename SparseDenseProductReturnType<Derived,OtherDerived>::Type
 SparseMatrixBase<Derived>::operator*(const MatrixBase<OtherDerived> &other) const
 {
   return typename SparseDenseProductReturnType<Derived,OtherDerived>::Type(derived(), other.derived());
-}
+}*/
 
 } // end namespace Eigen
 
