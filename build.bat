@@ -31,7 +31,7 @@ pushd "%~dp0"
 pushd "src\boost*"
 if not exist b2.exe call bootstrap.bat %_BOOTSTRAP_COMPILER%
 if %errorlevel% neq 0 goto eof 
-b2 stage --with-system --with-filesystem --with-log --with-program_options --with-timer --stagedir=..\..\install\%SEAMASS_TOOLSET%\boost --build-dir=..\..\build\%SEAMASS_TOOLSET% %_ADDRESS_MODEL% %_TOOLSET%
+b2 stage --with-system --with-filesystem --with-program_options --with-timer --stagedir=..\..\install\%SEAMASS_TOOLSET%\boost --build-dir=..\..\build\%SEAMASS_TOOLSET% %_ADDRESS_MODEL% %_TOOLSET%
 if %errorlevel% neq 0 goto eof 
 popd
 
