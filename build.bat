@@ -17,9 +17,11 @@ if defined BIN_ROOT (
 if defined Platform (
 	set "_ADDRESS_MODEL=address-model=64"
 	set "_PLATFORM=64"
+	set "_ARCH=x64"
 ) else (
 	set "_ADDRESS_MODEL=address-model=32"
 	set "_PLATFORM=32"
+	set "_ARCH=x86"
 )
 
 :: Prepare for builds
