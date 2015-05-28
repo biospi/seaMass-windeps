@@ -8,10 +8,11 @@ simply to install the dependencies using the usual Linux package manager or macp
 
 Building: Windows
 ------------------
-Ensure you invoke the Visual Studio or Intel compiler command prompt with the desired build
-environment (i.e. 32 or 64 bit). For Visual Studio builds, then simply run *build.bat*. For Intel
-builds, you need to also supply the Boost toolset as an argument, e.g. *build.bat intel-15.0* 
-for Intel C++ Composer XE 2015 or *build.bat intel-14.0* for Composer XE 2013.
+[CMake](http://www.cmake.org/) must be installed and on the path. Ensure you invoke the Visual Studio
+or Intel compiler command prompt with the desired build environment (i.e. 32 or 64 bit). For Visual
+Studio builds, then simply run *build.bat*. For Intel builds, you need to also supply the Boost toolset
+as an argument, e.g. *build.bat intel-15.0* for Intel C++ Composer XE 2015 or *build.bat intel-14.0*
+for Composer XE 2013.
 
 Using
 -----
