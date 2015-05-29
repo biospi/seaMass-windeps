@@ -59,7 +59,7 @@ popd
 :: Prepare for CMake builds
 if defined BIN_ROOT (
 	:: Don't set these before or it messes up Boost build!
-	set "CC=%BIN_ROOT%%TARGET_ARCH%\icl.exe"
+	set "CC=%BIN_ROOT%%TARGET_ARCH%\icl.exe /Qstd=c99"
 	set "CXX=%BIN_ROOT%%TARGET_ARCH%\icl.exe"
 )
 
