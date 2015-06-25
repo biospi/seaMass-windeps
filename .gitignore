@@ -4,3 +4,4 @@ src/boost*/bootstrap.log
 src/boost*/project-config.jam
 build/
 install/
+*~
