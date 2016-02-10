@@ -108,5 +108,14 @@ set "SEAMASS_BUILD=release"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 
+:: Build spatialindex
+set "SEAMASS_DEP=pugixml"
+set "SEAMASS_BUILD=debug"
+call build_cmake_pugixml.bat
+if %errorlevel% neq 0 goto eof
+set "SEAMASS_BUILD=release"
+call build_cmake_pugixml.bat
+if %errorlevel% neq 0 goto eof
+
 :eof
 popd
