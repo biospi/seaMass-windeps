@@ -40,20 +40,12 @@ popd
 :: Build curl
 pushd "src\curl*"
 xcopy * ..\..\build\%SEAMASS_TOOLSET%\curl\ /s /e /q /y
-pushd ..\..\build\%SEAMASS_TOOLSET%\curl\winbuild
+popd
+pushd build\%SEAMASS_TOOLSET%\curl\winbuild
 nmake /f Makefile.vc mode=static MACHINE=%_ARCH%
 nmake /f Makefile.vc mode=static DEBUG=yes MACHINE=%_ARCH%
 xcopy ..\builds\libcurl-vc-%_ARCH%-release-static-ipv6-sspi-winssl ..\..\..\..\install\%SEAMASS_TOOLSET%\curl\release\ /s /e /q /y
 xcopy ..\builds\libcurl-vc-%_ARCH%-debug-static-ipv6-sspi-winssl ..\..\..\..\install\%SEAMASS_TOOLSET%\curl\debug\ /s /e /q /y
-pushd ..\..\..\..\install\%SEAMASS_TOOLSET%\curl\release\lib
-copy libcurl_a.lib curl.lib /y
-del libcurl_a.lib
-popd
-pushd ..\..\..\..\install\%SEAMASS_TOOLSET%\curl\debug\lib
-copy libcurl_a_debug.lib curl.lib /y
-del libcurl_a_debug.lib
-popd
-popd
 popd
 
 :: Prepare for CMake builds
@@ -65,6 +57,7 @@ if defined BIN_ROOT (
 
 :: Build zlib
 set "SEAMASS_DEP=zlib"
+set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -74,6 +67,7 @@ if %errorlevel% neq 0 goto eof
 
 :: Build lpng
 set "SEAMASS_DEP=lpng"
+set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -83,6 +77,7 @@ if %errorlevel% neq 0 goto eof
 
 :: Build hdf5
 set "SEAMASS_DEP=hdf5"
+set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -92,6 +87,7 @@ if %errorlevel% neq 0 goto eof
 
 :: Build netcdf-c
 set "SEAMASS_DEP=netcdf-c"
+set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -101,6 +97,7 @@ if %errorlevel% neq 0 goto eof
 
 :: Build spatialindex
 set "SEAMASS_DEP=spatialindex"
+set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -108,13 +105,14 @@ set "SEAMASS_BUILD=release"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 
-:: Build spatialindex
+:: Build pugixml
 set "SEAMASS_DEP=pugixml"
+set "SEAMASS_SUBDIR=scripts"
 set "SEAMASS_BUILD=debug"
-call build_cmake_pugixml.bat
+call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 set "SEAMASS_BUILD=release"
-call build_cmake_pugixml.bat
+call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 
 :eof
