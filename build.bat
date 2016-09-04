@@ -75,6 +75,16 @@ set "SEAMASS_BUILD=release"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 
+:: Build fltk
+set "SEAMASS_DEP=fltk"
+set "SEAMASS_SUBDIR="
+set "SEAMASS_BUILD=debug"
+call build_cmake.bat
+if %errorlevel% neq 0 goto eof
+set "SEAMASS_BUILD=release"
+call build_cmake.bat
+if %errorlevel% neq 0 goto eof
+
 :: Build hdf5
 set "SEAMASS_DEP=hdf5"
 set "SEAMASS_SUBDIR="
@@ -86,7 +96,7 @@ call build_cmake.bat
 if %errorlevel% neq 0 goto eof
 
 :: Build netcdf-c
-set "SEAMASS_DEP=netcdf-c"
+set "SEAMASS_DEP=netcdf"
 set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
