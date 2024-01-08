@@ -57,7 +57,6 @@ if defined BIN_ROOT (
 
 :: Build zlib
 set "SEAMASS_DEP=zlib"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -67,7 +66,6 @@ if %errorlevel% neq 0 goto eof
 
 :: Build lpng
 set "SEAMASS_DEP=lpng"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -77,7 +75,6 @@ if %errorlevel% neq 0 goto eof
 
 :: Build fltk
 set "SEAMASS_DEP=fltk"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -87,7 +84,6 @@ if %errorlevel% neq 0 goto eof
 
 :: Build hdf5
 set "SEAMASS_DEP=hdf5"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -97,7 +93,6 @@ if %errorlevel% neq 0 goto eof
 
 :: Build netcdf-c
 set "SEAMASS_DEP=netcdf"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -107,7 +102,6 @@ if %errorlevel% neq 0 goto eof
 
 :: Build spatialindex
 set "SEAMASS_DEP=spatialindex"
-set "SEAMASS_SUBDIR="
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof
@@ -117,7 +111,15 @@ if %errorlevel% neq 0 goto eof
 
 :: Build pugixml
 set "SEAMASS_DEP=pugixml"
-set "SEAMASS_SUBDIR=scripts"
+set "SEAMASS_BUILD=debug"
+call build_cmake.bat
+if %errorlevel% neq 0 goto eof
+set "SEAMASS_BUILD=release"
+call build_cmake.bat
+if %errorlevel% neq 0 goto eof
+
+:: Build tiff
+set "SEAMASS_DEP=tiff"
 set "SEAMASS_BUILD=debug"
 call build_cmake.bat
 if %errorlevel% neq 0 goto eof

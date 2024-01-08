@@ -1,6 +1,6 @@
 :: Build a CMake dependency
 mkdir build\%SEAMASS_TOOLSET%\%SEAMASS_DEP%
-pushd "src\%SEAMASS_DEP%*\%SEAMASS_SUBDIR%"
+pushd "src\%SEAMASS_DEP%*"
 set "_DIR=%cd%"
 popd
 mkdir build\%SEAMASS_TOOLSET%\%SEAMASS_DEP%\%SEAMASS_BUILD%
